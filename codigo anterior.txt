@@ -1,0 +1,280 @@
+<%@ Page Title="" Language="C#" MasterPageFile="~/home.Master" AutoEventWireup="true" CodeBehind="usuarios.aspx.cs" Inherits="templateApp.usuarios" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Usuarios</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>NOMBRE</th>
+                                        <th>APELLIDO</th>
+                                        <th>TELEFONO</th>
+                                        <th>MAIL</th>
+                                        <th>SERVICIO</th>
+                                        <th>COMENTARIO</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-hover"
+                                        AutoGenerateColumns="false"
+                                      OnRowCancelingEdit="rowCancelEditEvent" 
+                                      OnRowDeleting="rowDeletingEvent" 
+                                      OnRowEditing="rowEditingEvent" 
+                                      OnRowUpdating="rowUpdatingEvent" 
+                                           DataKeyNames="id">
+                                        <Columns>
+                                          
+                                            <asp:TemplateField HeaderText="NOMBRE">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="labelNombre" runat="server" Text='<%# Bind("NOMBRE") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="txtNombre" runat="server" Text='<%# Bind("NOMBRE") %>'></asp:TextBox>
+                                                </EditItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="APELLIDO">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="labelApellido" runat="server" Text='<%# Bind("APELLIDO") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="txtApellido" runat="server" Text='<%# Bind("APELLIDO") %>'></asp:TextBox>
+                                                </EditItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="TELEFONO">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="labelTelefono" runat="server" Text='<%# Bind("TELEFONO") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="txtTelefono" runat="server" Text='<%# Bind("TELEFONO") %>'></asp:TextBox>
+                                                </EditItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="MAIL">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="labelCorreo" runat="server" Text='<%# Bind("MAIL") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="txtCorreo" runat="server" Text='<%# Bind("MAIL") %>'></asp:TextBox>
+                                                </EditItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="SERVICIO">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="labelServicio" runat="server" Text='<%# Bind("SERVICIO") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="txtServicio" runat="server" Text='<%# Bind("SERVICIO") %>'></asp:TextBox>
+                                                </EditItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="COMENTARIO">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="labelComentario" runat="server" Text='<%# Bind("Comentario") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="txtComentario" runat="server" Text='<%# Bind("Comentario") %>'></asp:TextBox>
+                                                </EditItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
+                                        </Columns>
+                                    </asp:GridView>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
+
+    <script>
+      $(function () {
+        $("#example1").DataTable({
+          "responsive": true, "lengthChange": false, "autoWidth": false,
+          "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      });
+    </script>
+</asp:Content>
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace templateApp
+{
+  public partial class usuarios : System.Web.UI.Page
+  {
+
+    //CREAMOS LAS VARIABLES PROVADAS
+    private SqlConnection conn;
+    //DATACLASS1DATACONEXT -> conexion a LINQ (ORM - mapeador de la base de datos)
+    private DataClasses1DataContext mapeardor;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+      conn = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=templateDB;");
+      conn.Open();
+      mapeardor = new DataClasses1DataContext(conn);
+      if (!IsPostBack)
+      {
+
+        cargarGrilla();
+        DataTable dt = ConvertGridViewToDataTable(GridView1);
+
+        string scriptT = @"<script>
+                    $(document).ready(function() {
+                        $('#<%= GridView1.ClientID %>').DataTable(); 
+                    });
+                    </script>";
+        ScriptManager.RegisterStartupScript(this, GetType(), "DataTables", scriptT, false);
+        string script = @"<script>
+            $(document).ready(function() {
+                $('#example1').DataTable(); // ID de tu tabla
+                $('#example2').DataTable(); // ID de tu tabla
+            });
+            </script>";
+        ClientScript.RegisterStartupScript(this.GetType(), "DataTables", script);
+      }
+
+    }
+    private DataTable ConvertGridViewToDataTable(GridView gridView)
+    {
+      DataTable dt = new DataTable();
+
+      // Agregar las columnas al DataTable basándote en las columnas del GridView
+      foreach (DataControlField column in gridView.Columns)
+      {
+        dt.Columns.Add(column.HeaderText);
+      }
+
+      // Agregar las filas al DataTable basándote en las filas del GridView
+      foreach (GridViewRow row in gridView.Rows)
+      {
+        DataRow dr = dt.NewRow();
+        for (int i = 0; i < gridView.Columns.Count; i++)
+        {
+          dr[i] = row.Cells[i].Text;
+        }
+        dt.Rows.Add(dr);
+      }
+
+      return dt;
+    }
+    private void cargarGrilla()
+    {
+      var datosTurno = from i in mapeardor.datosTurno
+                       where i.ID > 1
+                       select new { i.ID, i.Nombre, i.Apellido, i.Mail, i.Servicio, i.Comentario, i.Telefono };
+
+
+      GridView1.DataSource = datosTurno;
+      GridView1.DataBind();
+    }
+    protected void BotonMostrar_Click(object sender, EventArgs e)
+    {
+      cargarGrilla();
+    }
+    protected void rowCancelEditEvent(object sender, GridViewCancelEditEventArgs e)
+    {
+      GridView1.EditIndex = -1;
+      cargarGrilla();
+    }
+    protected void rowDeletingEvent(object sender, GridViewDeleteEventArgs e)
+    {
+      /*, este código extrae el valor de la clave primaria de una fila específica en una grilla
+      //y lo convierte a un tipo de dato entero, almacenándolo en la variable codigo.*/
+      int codigo = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);//e.RowIndex refiere al indice de la fila en la que se desencadenó el evento.
+
+      datosTurno datoEliminar = mapeardor.datosTurno.SingleOrDefault(c => c.id == codigo);
+      if (datoEliminar != null)
+      {
+        mapeardor.datosTurno.DeleteOnSubmit(datoEliminar);
+        mapeardor.SubmitChanges();
+      }
+
+      cargarGrilla();
+    }
+    protected void rowEditingEvent(object sender, GridViewEditEventArgs e)
+    {
+      GridView1.EditIndex = e.NewEditIndex;
+      cargarGrilla();
+    }
+    protected void rowUpdatingEvent(object sender, GridViewUpdateEventArgs e)
+    {
+      //Buscamos el indice seleccionado
+      GridViewRow fila = GridView1.Rows[e.RowIndex];
+      //hacemos que cada celda sea como un textBox para  poder modificarlo
+      int codigo = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
+      string nombre = (fila.FindControl("txtNombre") as TextBox).Text;
+      string apellido = (fila.FindControl("txtApellido") as TextBox).Text;
+      string servicio = (fila.FindControl("txtServicio") as TextBox).Text;
+
+      //Busca el comentario del idComenterio y verifica que sea igual al valor de la grilla seleccionado
+      datosTurno consulta = mapeardor.datosTurno.SingleOrDefault(c => c.ID == codigo);
+      if (consulta != null)
+      {
+        consulta.Nombre = nombre;
+        consulta.Apellido = apellido;
+        consulta.Servicio = servicio;
+        consulta.Correo = servicio;
+        mapeardor.SubmitChanges();
+      }
+
+      GridView1.EditIndex = -1;
+      cargarGrilla();
+    }
+
+
+  }
+
+}
+
+
+
+
+
+

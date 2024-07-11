@@ -236,6 +236,7 @@
     <Content Include="index.html" />
     <Content Include="index2.html" />
     <Content Include="index3.html" />
+    <Content Include="IngresoServicio.aspx" />
     <Content Include="inicio.aspx" />
     <Content Include="JavaScripts\componentesUsuarios.js" />
     <Content Include="JavaScripts\JavaScript.js" />
@@ -2183,6 +2184,13 @@
     </Compile>
     <Compile Include="home.Master.designer.cs">
       <DependentUpon>home.Master</DependentUpon>
+    </Compile>
+    <Compile Include="IngresoServicio.aspx.cs">
+      <DependentUpon>IngresoServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IngresoServicio.aspx.designer.cs">
+      <DependentUpon>IngresoServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="inicio.aspx.cs">
       <DependentUpon>inicio.aspx</DependentUpon>

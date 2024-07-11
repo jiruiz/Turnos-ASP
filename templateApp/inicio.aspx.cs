@@ -17,7 +17,7 @@ namespace templateApp
     private DataClasses1DataContext mapeardor;
     protected void Page_Load(object sender, EventArgs e)
     {
-      conn = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=templateDB;");
+      conn = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=templateDB;Integrated Security=True;");
       conn.Open();
       mapeardor = new DataClasses1DataContext(conn);
       
@@ -46,7 +46,7 @@ namespace templateApp
 
         mapeardor.datosTurno.InsertOnSubmit(carga);
         mapeardor.SubmitChanges();
-        Response.Redirect("usuarios.aspx");
+        Response.Redirect("usuarios.aspx",false);
       }
       catch (SqlException ex)
       {
@@ -55,8 +55,8 @@ namespace templateApp
         Console.WriteLine("Error de SQL: " + ex.Message);
       }
       catch (Exception ex)
-      {
-        // Manejar otros errores
+      {                                                                                         
+        // Manejar otros errores             
         throw new Exception("Error en el Servidor. Contactese con Soporte Tecnico", ex);
       }
     }

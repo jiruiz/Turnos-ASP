@@ -42,10 +42,10 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
               </li>
               <li class="nav-item d-none d-sm-inline-block">
-                <a href="../../index3.html" class="nav-link">Home</a>
+                <a href="Inicio.aspx" class="nav-link">Inicio</a>
               </li>
               <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
+                <a href="IngresoServicio.aspx" class="nav-link">Ingresar Servicio Realizado</a>
               </li>
             </ul>
 
@@ -248,9 +248,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                       <li class="nav-item">
-                        <a href="../search/simple.html" class="nav-link">
+                        <a href="IngresoServicio.aspx" class="nav-link">
                           <i class="far fa-circle nav-icon"></i>
-                          <p>Simple Search</p>
+                          <p>Ingresar Serccio Realizado</p>
                         </a>
                       </li>
 
@@ -262,23 +262,7 @@
           </aside>
 
           <!-- Content Wrapper. Contains page content -->
-          <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-              <div class="container-fluid">
-                <div class="row mb-2">
-                  <div class="col-sm-6">
-                    <h1>Ingreso de Datos</h1>
-                  </div>
-                  <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                      <li class="breadcrumb-item"><a href="#">Home</a></li>
-                      <li class="breadcrumb-item active">Blank Page</li>
-                    </ol>
-                  </div>
-                </div>
-              </div><!-- /.container-fluid -->
-            </section>
+          
 
             <!-- Main content -->
             <section class="content">

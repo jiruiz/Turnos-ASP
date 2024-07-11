@@ -10,6 +10,23 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+  <div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Sistema de Gestion</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="inicio.aspx">Inicio</a></li>
+            <li class="breadcrumb-item active">Blank Page</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
 <section class="content">
   <div class="container-fluid">
     <div class="row">
@@ -20,8 +37,19 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-hover" AutoGenerateColumns="false"
+              <asp:GridView ID="GridView1" runat="server" CssClass="datatbemp" AutoGenerateColumns="false"
                 OnRowCancelingEdit="rowCancelEditEvent" OnRowDeleting="rowDeletingEvent" OnRowEditing="rowEditingEvent" OnRowUpdating="rowUpdatingEvent" DataKeyNames="ID">
+                <AlternatingRowStyle BackColor="White" />
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 <Columns>
                   <asp:TemplateField HeaderText="NOMBRE">
                     <ItemTemplate>
@@ -86,13 +114,24 @@
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 <script>
-  $(document).ready(function () {
-    $('#<%= GridView1.ClientID %>').DataTable({
-      "responsive": true,
-      "lengthChange": false,
-      "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#<%= GridView1.ClientID %>_wrapper .col-md-6:eq(0)');
-  });
+  <script>
+    $(document).ready(function () {
+      $(".datatbemp").prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();
+    });
 </script>
+
+  <!--
+  <script>
+      $(document).ready(function () {
+          $('#<%= GridView1.ClientID %>').DataTable({
+              "responsive": true,
+              "lengthChange": false,
+              "autoWidth": false,
+              "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+          }).buttons().container().appendTo('#<%= GridView1.ClientID %>_wrapper .col-md-6:eq(0)');
+      });
+  </script>
+  -->
+
+
 </asp:Content>

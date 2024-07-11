@@ -24,21 +24,7 @@ namespace templateApp
       {
 
         cargarGrilla();
-        DataTable dt = ConvertGridViewToDataTable(GridView1);
-
-        string scriptT = @"<script>
-                    $(document).ready(function() {
-                        $('#<%= GridView1.ClientID %>').DataTable(); 
-                    });
-                    </script>";
-        ScriptManager.RegisterStartupScript(this, GetType(), "DataTables", scriptT, false);
-        string script = @"<script>
-            $(document).ready(function() {
-                $('#example1').DataTable(); // ID de tu tabla
-                $('#example2').DataTable(); // ID de tu tabla
-            });
-            </script>";
-        ClientScript.RegisterStartupScript(this.GetType(), "DataTables", script);
+        
       }
 
     }
@@ -114,8 +100,11 @@ namespace templateApp
       int codigo = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
       string nombre = (fila.FindControl("txtNombre") as TextBox).Text;
       string apellido = (fila.FindControl("txtApellido") as TextBox).Text;
-      string servicio = (fila.FindControl("txtServicio") as TextBox).Text;
+      int tel = Convert.ToInt32((fila.FindControl("txtTelefono") as TextBox)?.Text);
 
+      string correo = (fila.FindControl("txtCorreo") as TextBox)?.Text;
+      string servicio = (fila.FindControl("txtServicio") as TextBox).Text;
+      
       //Busca el comentario del idComenterio y verifica que sea igual al valor de la grilla seleccionado
       datosTurno consulta = mapeardor.datosTurno.SingleOrDefault(c => c.ID == codigo);
       if (consulta != null)

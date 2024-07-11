@@ -1,5 +1,8 @@
 CREATE DATABASE templateDB;
 
+use templateDB;
+SELECT * FROM datosTurno;
+
 CREATE TABLE datosTurno (
     ID INT PRIMARY KEY IDENTITY,
     Nombre VARCHAR(50),
